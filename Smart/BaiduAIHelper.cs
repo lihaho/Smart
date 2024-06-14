@@ -31,14 +31,6 @@ namespace Smart
             _ttsClient = new Tts(apiKey, secretKey);
         }
 
-        public string RecognizeSpeech()
-        {
-            return "开灯";
-            // 假设音频文件已经录制并保存在本地
-            var data = File.ReadAllBytes("audio.wav");
-            var result = _asrClient.Recognize(data, "wav", 16000);
-            return result["result"][0].ToString();
-        }
 
         public string RecognizeSpeech(Stream audioStream)
         {

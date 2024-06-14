@@ -7,6 +7,7 @@ using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Reflection.Emit;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
@@ -19,10 +20,13 @@ namespace Smart
     public partial class Smart : Form
     {
         private BaiduAIHelper baiduAIHelper;
+        private ChatGPTHelper chatGPTHelper;
         private VoiceControl voiceControl;
         private bool voiceIsValid = false;
         private bool isSpeaking;
         private DateTime lastVoiceActivity;
+        private IDevice[] devices;
+        double bgVoice = 0.2;
 
         // 下面是麦克风录制声音用到
         private WaveInEvent waveIn;
@@ -32,10 +36,29 @@ namespace Smart
         public Smart()
         {
             InitializeComponent();
-            baiduAIHelper = new BaiduAIHelper("80081073", "9UbVh1wnQgEkRoclcohfB8Iy", "4btQhARRnh7LfDQsZX08T2sU9cx1D04t");
-            voiceControl = new VoiceControl(baiduAIHelper, this);
+            baiduAIHelper = new BaiduAIHelper("80081073", "9UbVh1wnQgEkRoclcohfB8Iy", "***");
+            chatGPTHelper = new ChatGPTHelper("sk-***");
+            voiceControl = new VoiceControl(baiduAIHelper, chatGPTHelper, this);
             ListAudioDevices();
             InitializeImages();
+            InitializeDevices();
+        }
+
+        private void InitializeDevices()
+        {
+            devices = new IDevice[] {
+                new AirConditioner("客厅", "空调", keting_ac, Properties.Resources.air_condition_open, Properties.Resources.air_condition_close),
+                new AirConditioner("主卧", "空调", zhuwo_ac, Properties.Resources.air_condition_open, Properties.Resources.air_condition_close),
+                new AirConditioner("次卧", "空调", ciwo_ac, Properties.Resources.air_condition_open, Properties.Resources.air_condition_close),
+                new Light("客厅", "灯", keting, Color.Yellow, Color.White),
+                new Light("主卧", "灯", zhuwo, Color.Yellow, Color.White),
+                new Light("次卧", "灯", ciwo, Color.Yellow, Color.White),
+            };
+        }
+
+        private IDevice FindDevice(string room, string name)
+        {
+            return devices.FirstOrDefault(device => device.Room == room && device.Name == name);
         }
 
         private void InitializeImages()
@@ -45,46 +68,20 @@ namespace Smart
 
         private void btnStartListening_Click(object sender, EventArgs e)
         {
-            startListen();
-        }
-
-        public void startListen()
-        {
-            string command = baiduAIHelper.RecognizeSpeech();
-            string response = voiceControl.ProcessCommand(command);
-            baiduAIHelper.SynthesizeSpeech(response);
+            doStartRecord();
         }
 
         // 更新UI上的设备状态
         public void UpdateDeviceStatus(string room, string device, string status)
         {
-            if (device =="灯")
+            var aim = FindDevice(room, device);
+            if (status == "开")
             {
-                var label = keting;
-                if (room == "主卧") { label = zhuwo; }
-                if (room == "次卧") { label = ciwo; }
-                if (status == "开")
-                {
-                    label.BackColor = Color.LightYellow;
-                }
-                if (status == "关")
-                {
-                    label.BackColor = Color.White;
-                }
+                aim.TurnOn();
             }
-            if (device == "空调")
+            if (status == "关")
             {
-                var label = keting_ac;
-                if (room == "主卧") { label = zhuwo_ac; }
-                if (room == "次卧") { label = ciwo_ac; }
-                if (status == "开")
-                {
-                    label.Image = Properties.Resources.air_condition_open;
-                }
-                if (status == "关")
-                {
-                    label.Image = Properties.Resources.air_condition_close;
-                }
+                aim.TurnOff();
             }
         }
 
@@ -93,14 +90,17 @@ namespace Smart
         {
             if (mod == "离家")
             {
-                keting.BackColor = Color.White;
-                zhuwo.BackColor = Color.White;
-                ciwo.BackColor = Color.White;
+                foreach (var device in devices)
+                {
+                    device.TurnOff();
+                }
             }
         }
 
         private void wakeButton_Click(object sender, EventArgs e)
         {
+            bgVoice = double.Parse(bg_voice.Text);
+
             if (voiceIsValid)
             {
                 wakeButton.Text = "音箱已关闭，点击打开";
@@ -154,7 +154,7 @@ namespace Smart
             }
             Debug.WriteLine($"Max Volume: {maxVolume}");
 
-            if (maxVolume > 0.15) // 设定一个阈值
+            if (maxVolume > bgVoice) // 设定一个阈值
             {
                 isSpeaking = true;
                 lastVoiceActivity = DateTime.Now;

@@ -36,25 +36,35 @@ namespace Smart
             this.statusStrip2 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label1 = new System.Windows.Forms.Label();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.voicePictureBox = new System.Windows.Forms.PictureBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.zhuwo_ac = new System.Windows.Forms.PictureBox();
+            this.ciwo_ac = new System.Windows.Forms.PictureBox();
+            this.keting_ac = new System.Windows.Forms.PictureBox();
             this.zhuwo = new System.Windows.Forms.Label();
             this.ciwo = new System.Windows.Forms.Label();
             this.keting = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.keting_ac = new System.Windows.Forms.PictureBox();
-            this.ciwo_ac = new System.Windows.Forms.PictureBox();
-            this.zhuwo_ac = new System.Windows.Forms.PictureBox();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.bg_voice = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.statusStrip2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.voicePictureBox)).BeginInit();
             this.groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.keting_ac)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ciwo_ac)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.zhuwo_ac)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ciwo_ac)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.keting_ac)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.groupBox4.SuspendLayout();
             this.SuspendLayout();
             // 
             // wakeButton
@@ -69,9 +79,9 @@ namespace Smart
             // 
             // startRecord
             // 
-            this.startRecord.Location = new System.Drawing.Point(32, 693);
+            this.startRecord.Location = new System.Drawing.Point(172, 203);
             this.startRecord.Name = "startRecord";
-            this.startRecord.Size = new System.Drawing.Size(132, 78);
+            this.startRecord.Size = new System.Drawing.Size(132, 51);
             this.startRecord.TabIndex = 4;
             this.startRecord.Text = "开始录音";
             this.startRecord.UseVisualStyleBackColor = true;
@@ -79,9 +89,9 @@ namespace Smart
             // 
             // stopRecord
             // 
-            this.stopRecord.Location = new System.Drawing.Point(179, 693);
+            this.stopRecord.Location = new System.Drawing.Point(310, 203);
             this.stopRecord.Name = "stopRecord";
-            this.stopRecord.Size = new System.Drawing.Size(132, 78);
+            this.stopRecord.Size = new System.Drawing.Size(132, 51);
             this.stopRecord.TabIndex = 5;
             this.stopRecord.Text = "停止录音";
             this.stopRecord.UseVisualStyleBackColor = true;
@@ -94,40 +104,47 @@ namespace Smart
             this.toolStripStatusLabel1});
             this.statusStrip2.Location = new System.Drawing.Point(0, 1095);
             this.statusStrip2.Name = "statusStrip2";
-            this.statusStrip2.Size = new System.Drawing.Size(1485, 41);
+            this.statusStrip2.Size = new System.Drawing.Size(1506, 41);
             this.statusStrip2.TabIndex = 0;
             this.statusStrip2.Text = "欢迎使用";
             // 
             // toolStripStatusLabel1
             // 
             this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
-            this.toolStripStatusLabel1.Size = new System.Drawing.Size(257, 31);
-            this.toolStripStatusLabel1.Text = "toolStripStatusLabel1";
+            this.toolStripStatusLabel1.Size = new System.Drawing.Size(230, 31);
+            this.toolStripStatusLabel1.Text = "请点击按钮打开音箱";
             this.toolStripStatusLabel1.ToolTipText = "欢迎使用";
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.label1);
+            this.groupBox1.Controls.Add(this.groupBox3);
+            this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.voicePictureBox);
-            this.groupBox1.Controls.Add(this.stopRecord);
             this.groupBox1.Controls.Add(this.wakeButton);
-            this.groupBox1.Controls.Add(this.startRecord);
             this.groupBox1.Location = new System.Drawing.Point(990, 37);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(460, 1012);
+            this.groupBox1.Size = new System.Drawing.Size(483, 485);
             this.groupBox1.TabIndex = 7;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "控制区";
             // 
-            // label1
+            // groupBox3
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(28, 642);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(106, 24);
-            this.label1.TabIndex = 8;
-            this.label1.Text = "手动控制";
+            this.groupBox3.Location = new System.Drawing.Point(6, 987);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(200, 100);
+            this.groupBox3.TabIndex = 14;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "groupBox3";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(51, 641);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(0, 24);
+            this.label3.TabIndex = 10;
             // 
             // label4
             // 
@@ -147,6 +164,15 @@ namespace Smart
             this.voicePictureBox.TabIndex = 6;
             this.voicePictureBox.TabStop = false;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(26, 216);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(106, 24);
+            this.label1.TabIndex = 8;
+            this.label1.Text = "手动控制";
+            // 
             // groupBox2
             // 
             this.groupBox2.BackColor = System.Drawing.Color.Transparent;
@@ -163,6 +189,36 @@ namespace Smart
             this.groupBox2.TabIndex = 8;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "效果展示";
+            // 
+            // zhuwo_ac
+            // 
+            this.zhuwo_ac.Image = global::Smart.Properties.Resources.air_condition_close;
+            this.zhuwo_ac.Location = new System.Drawing.Point(271, 737);
+            this.zhuwo_ac.Name = "zhuwo_ac";
+            this.zhuwo_ac.Size = new System.Drawing.Size(96, 109);
+            this.zhuwo_ac.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.zhuwo_ac.TabIndex = 13;
+            this.zhuwo_ac.TabStop = false;
+            // 
+            // ciwo_ac
+            // 
+            this.ciwo_ac.Image = global::Smart.Properties.Resources.air_condition_close;
+            this.ciwo_ac.Location = new System.Drawing.Point(276, 188);
+            this.ciwo_ac.Name = "ciwo_ac";
+            this.ciwo_ac.Size = new System.Drawing.Size(96, 109);
+            this.ciwo_ac.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.ciwo_ac.TabIndex = 12;
+            this.ciwo_ac.TabStop = false;
+            // 
+            // keting_ac
+            // 
+            this.keting_ac.Image = global::Smart.Properties.Resources.air_condition_close;
+            this.keting_ac.Location = new System.Drawing.Point(590, 737);
+            this.keting_ac.Name = "keting_ac";
+            this.keting_ac.Size = new System.Drawing.Size(96, 109);
+            this.keting_ac.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.keting_ac.TabIndex = 11;
+            this.keting_ac.TabStop = false;
             // 
             // zhuwo
             // 
@@ -207,42 +263,82 @@ namespace Smart
             this.pictureBox1.TabIndex = 7;
             this.pictureBox1.TabStop = false;
             // 
-            // keting_ac
+            // groupBox4
             // 
-            this.keting_ac.Image = global::Smart.Properties.Resources.air_condition_close;
-            this.keting_ac.Location = new System.Drawing.Point(590, 737);
-            this.keting_ac.Name = "keting_ac";
-            this.keting_ac.Size = new System.Drawing.Size(96, 109);
-            this.keting_ac.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.keting_ac.TabIndex = 11;
-            this.keting_ac.TabStop = false;
+            this.groupBox4.Controls.Add(this.textBox3);
+            this.groupBox4.Controls.Add(this.label6);
+            this.groupBox4.Controls.Add(this.label5);
+            this.groupBox4.Controls.Add(this.textBox2);
+            this.groupBox4.Controls.Add(this.bg_voice);
+            this.groupBox4.Controls.Add(this.label2);
+            this.groupBox4.Controls.Add(this.label1);
+            this.groupBox4.Controls.Add(this.stopRecord);
+            this.groupBox4.Controls.Add(this.startRecord);
+            this.groupBox4.Location = new System.Drawing.Point(990, 544);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(483, 505);
+            this.groupBox4.TabIndex = 9;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "设置";
             // 
-            // ciwo_ac
+            // textBox3
             // 
-            this.ciwo_ac.Image = global::Smart.Properties.Resources.air_condition_close;
-            this.ciwo_ac.Location = new System.Drawing.Point(276, 188);
-            this.ciwo_ac.Name = "ciwo_ac";
-            this.ciwo_ac.Size = new System.Drawing.Size(96, 109);
-            this.ciwo_ac.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.ciwo_ac.TabIndex = 12;
-            this.ciwo_ac.TabStop = false;
+            this.textBox3.Location = new System.Drawing.Point(180, 290);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(268, 35);
+            this.textBox3.TabIndex = 14;
+            this.textBox3.Text = "80081073";
             // 
-            // zhuwo_ac
+            // label6
             // 
-            this.zhuwo_ac.Image = global::Smart.Properties.Resources.air_condition_close;
-            this.zhuwo_ac.Location = new System.Drawing.Point(271, 737);
-            this.zhuwo_ac.Name = "zhuwo_ac";
-            this.zhuwo_ac.Size = new System.Drawing.Size(96, 109);
-            this.zhuwo_ac.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.zhuwo_ac.TabIndex = 13;
-            this.zhuwo_ac.TabStop = false;
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(26, 290);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(142, 24);
+            this.label6.TabIndex = 13;
+            this.label6.Text = "baidu appid";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(26, 134);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(142, 24);
+            this.label5.TabIndex = 12;
+            this.label5.Text = "openapi key";
+            // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(174, 134);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(268, 35);
+            this.textBox2.TabIndex = 11;
+            this.textBox2.Text = "***";
+            // 
+            // bg_voice
+            // 
+            this.bg_voice.Location = new System.Drawing.Point(174, 65);
+            this.bg_voice.Name = "bg_voice";
+            this.bg_voice.Size = new System.Drawing.Size(268, 35);
+            this.bg_voice.TabIndex = 10;
+            this.bg_voice.Text = "0.20";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(22, 68);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(106, 24);
+            this.label2.TabIndex = 9;
+            this.label2.Text = "背景音量";
             // 
             // Smart
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 24F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1485, 1136);
+            this.ClientSize = new System.Drawing.Size(1506, 1136);
+            this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.statusStrip2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.groupBox2);
@@ -255,10 +351,12 @@ namespace Smart
             ((System.ComponentModel.ISupportInitialize)(this.voicePictureBox)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.keting_ac)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ciwo_ac)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.zhuwo_ac)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ciwo_ac)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.keting_ac)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.groupBox4.ResumeLayout(false);
+            this.groupBox4.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -282,6 +380,15 @@ namespace Smart
         private System.Windows.Forms.PictureBox keting_ac;
         private System.Windows.Forms.PictureBox zhuwo_ac;
         private System.Windows.Forms.PictureBox ciwo_ac;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.GroupBox groupBox4;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox bg_voice;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox textBox3;
     }
 }
 
